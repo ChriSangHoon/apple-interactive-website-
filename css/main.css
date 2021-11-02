@@ -55,6 +55,7 @@ a{
 .global-nav-links{
 	justify-content: space-between;
 }
+
 .local-nav-links .product-name {
 	margin-right: auto;
 	font-size: 1.4rem;

@@ -44,6 +44,7 @@
         }
     ];
 
+    
     function setLayout() {
         //각 스크롤 섹션의 높이 세팅
         for (let i=0; i< sceneInfo.length; i++){
