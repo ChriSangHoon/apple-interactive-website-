@@ -1,0 +1,203 @@
+@charset 'utf-8';
+
+html{
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size: 14px; 
+
+}
+
+body{
+	overflow-x: hidden;
+	/*가로 스크롤이 안 생김. */
+	color: rgb(29, 29, 31);
+	letter-spacing: -0.05em;
+	background: white;
+
+}
+p{
+	line-height: 1.6;
+
+}
+
+a{
+	color: rgb(29, 29, 31);
+	text-decoration: none;
+}
+.global-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 44px;
+	padding: 0 1rem;
+}
+.local-nav{
+	/* position absolute를 통해 메뉴바가 스크롤 영역을 차지하지 않게 배제해준다. */
+	position: absolute; 
+	top: 45px;
+	left: 0;
+	width: 100%;
+	height: 52px;
+	border-bottom: 1px solid #ddd;
+	padding: 0 1rem;
+	
+}
+
+.global-nav-links,
+.local-nav-links {
+	display: flex;
+	align-items: center;
+	max-width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+
+}
+.global-nav-links{
+	justify-content: space-between;
+}
+.local-nav-links .product-name {
+	margin-right: auto;
+	font-size: 1.4rem;
+	font-weight: bold;
+	/* margin auto를 주면 해당 공간을 모두 쓴다는 의미이다!! */
+}
+
+.local-nav-links a {
+	font-size: 0.8rem;
+}
+.local-nav-links a:not(.product-name) {
+	margin-left: 2em; 
+}
+.scroll-section{
+	border: 3px solid red;
+	padding-top: 50vh;
+
+}
+#scroll-section-0 h1 {
+	font-size: 4rem;
+	text-align: center;
+}
+.main-message {
+	/* 메인 정렬축이 가로축, align-items는 메인 축에 수직인 세로축을 의미한다. center를 통해 세로방향 중앙정렬 */
+	display: flex;
+	align-items: center;
+	margin: 5px 0;
+	justify-content: center; 
+	height: 3em;
+	font-size: 2.5rem;
+	opacity : 0;
+
+	/* 초기 opacity를 0으로 설정한다. js에서 건드릴것 */
+}
+#scroll-section-2.main-message{
+	font-size: 3.5rem;
+}
+.main-message p{
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.2;
+}
+.main-message small {
+	display: block;
+	font-size: 1.2rem;
+	margin-bottom: 0.5em;
+}
+.description{
+	padding: 0 1rem;
+	font-size: 1.2rem;
+	max-width: 1000px;
+	margin: 0 auto;
+	color: #888;
+}
+.description strong{
+	float: left;
+	margin-right: 0.2em;
+	font-size: 3rem;
+	color: rgb(29, 29, 31);
+	/* em과 rem? em은 현재 폰트 사이즈의 배수, rem은 루트 엘리먼트의 사이즈, 여기서는 1rem=14px*/
+}
+.desc-message{
+	font-weight: bold;
+	width: 50%;
+}
+.pin {
+	width: 1px;
+	height: 100px;
+	background: rgb(29, 29, 31);
+}
+.mid-message{
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 1rem;
+	font-size: 2rem;
+	color: #888;
+}
+.mid-message strong {
+	color: rgb(29, 29, 31);
+}
+
+.canvas-caption {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 0 1rem;
+	font-size: 1.2rem;
+	color: #888;
+	
+}
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 7rem;
+	background: darkorange;
+}
+
+.sticky-elem {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+/* show scene이 붙은 해당하는 스크롤 섹션 아이디의 sticky elem만 보여주기 위함 */
+/* 해당 스크롤 영역일때 body에 show-scene을 부여해서 해당 sticky elem만 보여준다. */
+#show-scene-0 #scroll-section-0 .sticky-elem,
+#show-scene-1 #scroll-section-1 .sticky-elem,
+#show-scene-2 #scroll-section-2 .sticky-elem,
+#show-scene-3 #scroll-section-3 .sticky-elem {
+	display:block;
+
+}
+@media (min-width: 1024px) {
+	#scroll-section-0 h1{
+		font-size: 9vw; 
+	}
+	.main-message{
+		font-size: 4vw;
+
+	}
+	.description{
+		
+		font-size: 2rem;
+	}
+	.description strong {
+		font-size: 6rem;
+	}
+
+	#scroll-section-2 .main-message {
+		font-size: 6vw;
+	}
+	.main-message small {
+		font-size: 1.5vw;
+	}
+	.desc-message {
+		width: 20%;
+	}
+	.mid-message {
+		font-size: 4vw;
+	}
+	.canvas-caption{
+		font-size: 2rem;
+	}
+	/* rem은 고정값. html의 font size의 몇 배인지. vw는 창 크기의 몇퍼센트인지,, 디자이너의 의도에 따라감! */
+}
